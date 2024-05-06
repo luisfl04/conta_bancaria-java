@@ -122,6 +122,20 @@ public class ContaBancaria {
         return valor_atual_da_fatura;
     }
 
+    // Método que realiza o 'pagamento' integral do valor de empréstimo que o usuário precisa pagar:
+    public static double pagar_emprestimo(double valor_de_emprestimo_inserido){
+        // Só irá ser aceito o valor integral do empréstimo(s) feito(s):
+        if(valor_de_emprestimo_inserido == valor_de_emprestimo_para_ser_pago){
+            valor_de_emprestimo_para_ser_pago = 0;
+        }
+        else{
+            // Exibindo mensagem de erro para usuário:
+            System.out.println("\nSó é possivel pagar o valor integral! O valor de pagamento precisa ser -> R$" + valor_de_emprestimo_para_ser_pago + ", para que o pagamento seja aceito.");
+        }
+
+        return valor_de_emprestimo_para_ser_pago;
+    }
+
 
 
 }
