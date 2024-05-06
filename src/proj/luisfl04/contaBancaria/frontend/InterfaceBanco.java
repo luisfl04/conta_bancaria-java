@@ -58,6 +58,28 @@ public class InterfaceBanco {
             quantidade_de_caracteres_agencia_da_conta = quantidade_de_caracteres_agencia_da_conta_no_while;
         }
 
+        // Pedindo o digito verificador da agencia da conta:
+        System.out.println("\nCerto, para completar, insira o dígito verificador da sua agência abaixo(de 0 á 9):");
+        ContaBancaria.digito_verificador_da_agencia = scanf.nextByte();
+
+        // Verificando se o número digitado é maior que 10 ou menor que 0, para tratar erro:
+        while(ContaBancaria.digito_verificador_da_agencia < 0 || ContaBancaria.digito_verificador_da_agencia >= 10){
+            // Exibindo mensagem de erro:
+            System.out.println("\nVoce digitou um valor inválido! Digite novamente abaixo:");
+            ContaBancaria.digito_verificador_da_agencia = scanf.nextByte();
+        }
+
+        // Concatenando o numero da agencia com o digite verificador e atribuindo o valor a uma variável:
+        
+        // Primeiramente, convertendo o digito 
+
+        final String numero_da_agencia =  
+
+    
+
+
+
+
         
 
 
