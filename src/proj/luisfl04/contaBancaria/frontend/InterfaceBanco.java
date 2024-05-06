@@ -1,4 +1,4 @@
-package proj.luis.frontend;
+package proj.luisfl04.contaBancaria.frontend;
 
 public class InterfaceBanco {
     
