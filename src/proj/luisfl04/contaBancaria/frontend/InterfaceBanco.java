@@ -78,7 +78,34 @@ public class InterfaceBanco {
         // Concantenando e armazenando:
         final String numero_da_agencia_com_digito =  numero_da_agencia.concat("-").concat(digito_verificador);
 
-        
+
+        // Criação de menu interativo. Que sempre irá mostrar as informações e as opções de métodos que o usuário pode escolher:
+
+        // Criando variável que irá determinar o fluxo do programa:
+        int escolha_do_usuario = 100; // Inicializei com este valor para que o programa entre o loop 'while'.
+
+        // Criando loop de execução:
+        while(escolha_do_usuario != 0){
+
+            // Implementação que tenta limpar o contéudo do terminal, sempre que o loop está execultando:
+            try{
+                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+            }
+            catch(Exception e){
+                e.printStackTrace();
+            }
+
+            System.out.println("Insira uma escolha abaixo:");
+            escolha_do_usuario = scanf.nextInt();
+
+
+
+
+
+        }
+
+
+
 
 
 
