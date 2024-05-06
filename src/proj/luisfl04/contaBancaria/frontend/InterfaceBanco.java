@@ -71,9 +71,18 @@ public class InterfaceBanco {
 
         // Concatenando o numero da agencia com o digite verificador e atribuindo o valor a uma variável:
         
-        // Primeiramente, convertendo o digito 
+        // Primeiramente, convertendo o digito verificador e o numero da agência em string:
+        final String digito_verificador = Byte.toString(ContaBancaria.digito_verificador_da_agencia);   
+        final String numero_da_agencia = Integer.toString(ContaBancaria.agencia_da_conta);
 
-        final String numero_da_agencia =  
+        // Concantenando e armazenando:
+        final String numero_da_agencia_com_digito =  numero_da_agencia.concat("-").concat(digito_verificador);
+
+        
+
+
+
+        
 
     
 
