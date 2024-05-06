@@ -107,6 +107,21 @@ public class ContaBancaria {
         return saldo_atual;
     }
 
+    // Método para pagar fatura de crédito:
+    // Neste caso, o usuário so irá poder pagar a fatura integral:
+    public static double pagar_fatura(double valor_da_fatura_inserido){
+        // Verificando se o valor é igual:
+        if(valor_da_fatura_inserido == valor_atual_da_fatura){
+            valor_atual_da_fatura = 0;
+        }
+        else{
+            // Se não for o valor integral, é exibida mensagem de erro.
+            System.out.println("\nSó é possível pagar o valor integralmente. Insira o valor -> " + valor_atual_da_fatura + "R$, para que o pagamento seja realizado com suscesso.");
+        }
+    
+        return valor_atual_da_fatura;
+    }
+
 
 
 }
