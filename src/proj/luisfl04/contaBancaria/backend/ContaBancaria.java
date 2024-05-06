@@ -1,19 +1,19 @@
 package proj.luisfl04.contaBancaria.backend;
-// Importações nescessárias:
 
 
 // Classe principal:
 public class ContaBancaria {
     // Criando atributos globais:
     // Foram definidos como 'static' para facilitar o uso neste escopo.
-    static String nome_cliente;
-    static int numero_da_conta;
-    static String agencia_da_conta;
-    static double saldo_atual = 0;
-    static double valor_de_emprestimo_disponivel = 0;
-    static double valor_de_crédito_disponivel = 0;
-    static double valor_atual_da_fatura = 0;
-    static double valor_de_emprestimo_para_ser_pago = 0;
+    public static String nome_cliente;
+    public static int numero_da_conta;
+    public static int agencia_da_conta;
+    public static byte digito_verificador_da_agencia;
+    public static double saldo_atual = 0;
+    public static double valor_de_emprestimo_disponivel = 0;
+    public static double valor_de_crédito_disponivel = 0;
+    public static double valor_atual_da_fatura = 0;
+    public static double valor_de_emprestimo_para_ser_pago = 0;
 
     // Criando métodos do sistema:
     
