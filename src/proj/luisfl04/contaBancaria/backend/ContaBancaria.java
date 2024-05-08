@@ -18,7 +18,7 @@ public class ContaBancaria {
     // Criando métodos do sistema:
     
     // Método de depósito de valor escolhido:
-    // Foi adicionado uma lógica que com base no valor de depósito escolhido pelo usuário, os valores de empréstimo e crédito disponíveis aumenta.
+    // Foi adicionado uma lógica que com base no valor de depósito escolhido pelo usuário, os valores de empréstimo e crédito disponíveis aumentam.
     public static double depositar_valor(double valor_de_deposito){
         // Atribuindo valor de depósito ao saldo:
         saldo_atual = saldo_atual + valor_de_deposito;

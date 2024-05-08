@@ -122,6 +122,10 @@ public class InterfaceBanco {
             // Limpando terminal:
             limpar_terminal();
 
+            
+
+
+
             // Implementando impressão das informações do usuário junto com suas informações bancárias:
             System.out.println("--------------------------------------------\nNome -> " + ContaBancaria.nome_cliente + "\nNúmero da conta -> " + ContaBancaria.numero_da_conta + "\nAgência -> " + numero_da_agencia_com_digito);
             // Infos relacionadas ao saldo do usuário:
@@ -289,7 +293,11 @@ public class InterfaceBanco {
                     // Se o valor é valido, é feita a operação:
                     ContaBancaria.fazer_emprestimo(valor_de_emprestimo);
 
+                    // Printando mensagem de validação:
+                    System.out.println("\nEmpréstimo de R$" + valor_de_emprestimo + " feito com suscesso!\n...");
 
+                    // Pausando execulção em 2 segundos:
+                    pausar_dois_segundos();
 
                     break;
 
