@@ -195,18 +195,18 @@ public class InterfaceBanco {
                     limpar_terminal();
 
                     // Pendindo valor do saque ao usuário:                    
-                    System.out.println("\n*Saque*\n--------------------------------------------\nSeu saldo -> R$" + ContaBancaria.saldo_atual + "\n* Digite '0' para encerrar transação *\nInsira o valor de saque escolhido abaixo:"); 
+                    System.out.println("\n*Saque*\n--------------------------------------------\nSeu saldo -> R$" + saldo_atual + "\n* Digite '0' para encerrar transação *\nInsira o valor de saque escolhido abaixo:"); 
                     double valor_do_saque = scanf.nextDouble();
                     
                     // Primeiramente, verificando se o usuário digitou um valor negativo ou nulo:
                     while(valor_do_saque < 0){
-                        System.out.println("\nSeu saldo -> R$" + ContaBancaria.saldo_atual +"\nValores negativos não são válidos para saque! Digite um valor válido abaixo:");
+                        System.out.println("\nSeu saldo -> R$" + saldo_atual +"\nValores negativos não são válidos para saque! Digite um valor válido abaixo:");
                         valor_do_saque = scanf.nextDouble();
                     }
 
                     // Fazendo verificação de caso o usuário desejar um valor maior do que o que ele tem na conta:
                     while(valor_do_saque > ContaBancaria.saldo_atual || valor_do_saque < 0){
-                        System.out.println("\nSeu saldo -> R$" + ContaBancaria.saldo_atual + "\n* Digite '0' para encerrar a transação *\nVoce esta tentando sacar um valor maior do que o disponível na sua conta, ou está tentando sacar um valor negativo.\nDigite um valor de saque válido abaixo:");
+                        System.out.println("\nSeu saldo -> R$" + saldo_atual + "\n* Digite '0' para encerrar a transação *\nVoce esta tentando sacar um valor maior do que o disponível na sua conta, ou está tentando sacar um valor negativo.\nDigite um valor de saque válido abaixo:");
                         valor_do_saque = scanf.nextDouble();
                     }
 
@@ -229,7 +229,7 @@ public class InterfaceBanco {
                     limpar_terminal();
                     
                     // Pedindo nome e cpf do remetente:
-                    System.out.println("\n*Tranferência PIX*\n--------------------------------------------\nSeu saldo -> R$" + ContaBancaria.saldo_atual +"\nPrimeiramente, digite o nome da pessoa a quem você quer destinar o PIX(somente o primeiro nome)\nDigite abaixo:");
+                    System.out.println("\n*Tranferência PIX*\n--------------------------------------------\nSeu saldo -> R$" + saldo_atual +"\nPrimeiramente, digite o nome da pessoa a quem você quer destinar o PIX(somente o primeiro nome)\nDigite abaixo:");
                     String nome_detinatario = scanf.next();
                     
                     // Pedindo cpf:
@@ -255,15 +255,15 @@ public class InterfaceBanco {
 
                     // Pedindo o valor da tranferência para o usuário:
                     
-                    // Limpando a tela,passando as infos do destinatário da tranferência, e pedindo o valor da transferência:
+                    // Limpando a tela, passando as infos do destinatário da tranferência, e pedindo o valor da transferência:
                     limpar_terminal();
 
-                    System.out.println("\nSeu saldo -> R$" + ContaBancaria.saldo_atual + "\n--------------------------------------------\n* Caso deseje, insira '0' para encerrar a transação *\nDestinatário -> " + nome_detinatario + "\nChave cpf -> " + cpf_do_destinatario + "\nInforme o valor da transferência abaixo:");
+                    System.out.println("\nSeu saldo -> R$" +saldo_atual + "\n--------------------------------------------\n* Caso deseje, insira '0' para encerrar a transação *\nDestinatário -> " + nome_detinatario + "\nChave cpf -> " + cpf_do_destinatario + "\nInforme o valor da transferência abaixo:");
                     double valor_da_transferencia = scanf.nextDouble();
                     
                     // Fazendo tratamento de erro caso o usuário digite um valor negativo:
                     while(valor_da_transferencia < 0 || valor_da_transferencia > ContaBancaria.saldo_atual){
-                        System.out.println("\nSeu saldo -> R$" + ContaBancaria.saldo_atual + "\n--------------------------------------------\n* Caso deseje, insira '0' para encerrar a transação *\nO valor inserido é invalido! Insira um valor válido abaixo:");
+                        System.out.println("\nSeu saldo -> R$" + saldo_atual + "\n--------------------------------------------\n* Caso deseje, insira '0' para encerrar a transação *\nO valor inserido é invalido! Insira um valor válido abaixo:");
                         valor_da_transferencia = scanf.nextDouble();
                     }
 
@@ -284,12 +284,12 @@ public class InterfaceBanco {
                     limpar_terminal();
 
                     // printando o limite disponível e pedindo o valor do empréstimo:
-                    System.out.println("\nDigite '0' para encerrar esta transação\n\n* Empréstimo *\n--------------------------------------------\nSeu limite de crédito disponível -> R$" + ContaBancaria.valor_de_emprestimo_disponivel + "\nInsira o valor de empréstimo escolhido abaixo(Este valor será incorporado a sua conta):");
+                    System.out.println("\nDigite '0' para encerrar esta transação\n\n* Empréstimo *\n--------------------------------------------\nSeu limite de empréstimo disponível -> R$" + valor_de_emprestimo_disponivel + "\nInsira o valor de empréstimo escolhido abaixo(Este valor será incorporado a sua conta):");
                     double valor_de_emprestimo = scanf.nextDouble();
 
                     // Verificando o valor de empréstimo inserido pelo usuário:
                     while(valor_de_emprestimo < 0 || valor_de_emprestimo > ContaBancaria.valor_de_emprestimo_disponivel){
-                        System.out.println("\nDigite '0' para encerrar esta transação\n\nSeu valor de empréstimo disponível -> R$" +ContaBancaria.valor_de_emprestimo_disponivel + "\n--------------------------------------------\nO valor que você inseriu é inválido!\nDigite um valor válido abaixo:");
+                        System.out.println("\nDigite '0' para encerrar esta transação\n\nSeu valor de empréstimo disponível -> R$" + valor_de_emprestimo_disponivel + "\n--------------------------------------------\nO valor que você inseriu é inválido!\nDigite um valor válido abaixo:");
                         valor_de_emprestimo = scanf.nextDouble();    
                     }
 
@@ -309,7 +309,8 @@ public class InterfaceBanco {
                     // Limpando terminal:
                     limpar_terminal();
 
-                    
+                    System.out.println("\nDigite '0' para encerrar esta transação\n\n* Crédito *\n--------------------------------------------\nSeu limite de crédito disponível -> R$" + ContaBancaria.valor_de_emprestimo_disponivel + "\nInsira o valor desejado abaixo(Este valor será incorporado a sua conta):");
+                    double valor_de_uso_de_credito = scanf.nextDouble();
 
 
                     
