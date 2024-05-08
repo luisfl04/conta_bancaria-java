@@ -11,7 +11,7 @@ public class ContaBancaria {
     public static byte digito_verificador_da_agencia;
     public static double saldo_atual = 0;
     public static double valor_de_emprestimo_disponivel = 0;
-    public static double valor_de_crédito_disponivel = 0;
+    public static double valor_de_credito_disponivel = 0;
     public static double valor_atual_da_fatura = 0;
     public static double valor_de_emprestimo_para_ser_pago = 0;
 
@@ -25,27 +25,27 @@ public class ContaBancaria {
 
         // Lógica para crecimento de valores de crédito e empréstimo:
         if(valor_de_deposito <= 10){
-            valor_de_crédito_disponivel = valor_de_crédito_disponivel + 2.50;
+            valor_de_credito_disponivel = valor_de_credito_disponivel + 2.50;
             valor_de_emprestimo_disponivel = valor_de_emprestimo_disponivel + 2.00;
         }
         else if(valor_de_deposito > 10 && valor_de_deposito <= 100){
-            valor_de_crédito_disponivel = valor_de_crédito_disponivel + 10;
+            valor_de_credito_disponivel = valor_de_credito_disponivel + 10;
             valor_de_emprestimo_disponivel = valor_de_emprestimo_disponivel + 9.25;
         }
         else if(valor_de_deposito > 100 && valor_de_deposito <= 1000){
-            valor_de_crédito_disponivel = valor_de_crédito_disponivel + 100;
+            valor_de_credito_disponivel = valor_de_credito_disponivel + 100;
             valor_de_emprestimo_disponivel = valor_de_emprestimo_disponivel + 95.50;
         }
         else if(valor_de_deposito > 1000 && valor_de_deposito <= 10000){
-            valor_de_crédito_disponivel = valor_de_crédito_disponivel + 1000;
+            valor_de_credito_disponivel = valor_de_credito_disponivel + 1000;
             valor_de_emprestimo_disponivel = valor_de_emprestimo_disponivel + 999.40;
         }
         else if(valor_de_deposito > 10000 && valor_de_deposito <= 100000){
-            valor_de_crédito_disponivel = valor_de_crédito_disponivel + 10000;
+            valor_de_credito_disponivel = valor_de_credito_disponivel + 10000;
             valor_de_emprestimo_disponivel = valor_de_emprestimo_disponivel + 9999.45;
         }
         else{
-            valor_de_crédito_disponivel = valor_de_crédito_disponivel + 100000;
+            valor_de_credito_disponivel = valor_de_credito_disponivel + 100000;
             valor_de_emprestimo_disponivel = valor_de_emprestimo_disponivel + 99999.56;
         }
 
@@ -84,7 +84,7 @@ public class ContaBancaria {
     public static double usar_credito(double valor_de_uso_do_credito){
                   
         // Decrementando o valor de crédito disponível;
-        valor_de_crédito_disponivel = valor_de_crédito_disponivel - valor_de_uso_do_credito; 
+        valor_de_credito_disponivel = valor_de_credito_disponivel - valor_de_uso_do_credito; 
             
         // Adicionando valor na fatura:
         valor_atual_da_fatura = valor_atual_da_fatura + valor_de_uso_do_credito;

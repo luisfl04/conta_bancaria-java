@@ -125,7 +125,7 @@ public class InterfaceBanco {
             // Formatando os valores do tipo double antes de serem impressos:
             String saldo_atual = String.format("%.2f", ContaBancaria.saldo_atual);
             String valor_de_emprestimo_disponivel = String.format("%.2f", ContaBancaria.valor_de_emprestimo_disponivel);
-            String valor_de_credito_disponivel = String.format("%.2f", ContaBancaria.valor_de_crédito_disponivel);
+            String valor_de_credito_disponivel = String.format("%.2f", ContaBancaria.valor_de_credito_disponivel);
             String valor_atual_da_fatura = String.format("%.2f", ContaBancaria.valor_atual_da_fatura);
             String valor_de_emprestimo_para_ser_pago = String.format("%.2f", ContaBancaria.valor_de_emprestimo_para_ser_pago);
 
@@ -258,7 +258,7 @@ public class InterfaceBanco {
                     // Limpando a tela, passando as infos do destinatário da tranferência, e pedindo o valor da transferência:
                     limpar_terminal();
 
-                    System.out.println("\nSeu saldo -> R$" +saldo_atual + "\n--------------------------------------------\n* Caso deseje, insira '0' para encerrar a transação *\nDestinatário -> " + nome_detinatario + "\nChave cpf -> " + cpf_do_destinatario + "\nInforme o valor da transferência abaixo:");
+                    System.out.println("\nSeu saldo -> R$" + saldo_atual + "\n--------------------------------------------\n* Caso deseje, insira '0' para encerrar a transação *\nDestinatário -> " + nome_detinatario + "\nChave cpf -> " + cpf_do_destinatario + "\nInforme o valor da transferência abaixo:");
                     double valor_da_transferencia = scanf.nextDouble();
                     
                     // Fazendo tratamento de erro caso o usuário digite um valor negativo:
@@ -309,13 +309,28 @@ public class InterfaceBanco {
                     // Limpando terminal:
                     limpar_terminal();
 
-                    System.out.println("\nDigite '0' para encerrar esta transação\n\n* Crédito *\n--------------------------------------------\nSeu limite de crédito disponível -> R$" + ContaBancaria.valor_de_emprestimo_disponivel + "\nInsira o valor desejado abaixo(Este valor será incorporado a sua conta):");
+                    // Pendindo o valor desejado de crédito:
+                    System.out.println("\nDigite '0' para encerrar esta transação\n\n* Crédito *\n--------------------------------------------\nSeu limite de crédito disponível -> R$" + valor_de_credito_disponivel + "\nInsira o valor desejado abaixo(Este valor será incorporado a sua conta):");
                     double valor_de_uso_de_credito = scanf.nextDouble();
 
+                    // Verificando se o valor é negativo ou maior do que o limite disponível correspondente:
+                    while(valor_de_uso_de_credito > ContaBancaria.valor_de_credito_disponivel || valor_de_uso_de_credito < 0){
+                        System.out.println("\n\n* Digite '0' para encerrar esta transação *\nSeu limite de crédito disponível -> R$" + ContaBancaria.valor_de_credito_disponivel + "\n--------------------------------------------\n\nO valor que você inseriu é inválido!\nDigite um valor válido abaixo:");
+                        valor_de_uso_de_credito = scanf.nextDouble();
+                    }
 
+                    // Se o valor inserido é valido, o método é chamado:
+                    ContaBancaria.usar_credito(valor_de_uso_de_credito);
+
+                    // Printando que a operação foi suscedida:
+                    System.out.println("\nO uso de R$" + valor_de_uso_de_credito + " de crédito foi aprovado!\nO valor foi incorporado a sua conta..." );
+
+                    // Pausando a execulção em dois segundos:
+                    pausar_dois_segundos();
                     
                     break;
 
+                
 
 
                 default:
