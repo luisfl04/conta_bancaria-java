@@ -13,8 +13,18 @@
 
 # Funcionamento:
 
-### Tela do programa:
-![tela_do_programa]()    
+## Tela do programa:
+![tela_do_programa](./img/tela_sistema_banco.PNG)    
 
-### O fluxo de funcionamento
+## Descrição:
+
+### - O fluxo de funcionamento é bem simples, primeiramente é pedido algumas informações gerais para o usuário, como: nome, numero de conta e numero da agência. Essas informações são nescessárias para 'criar' a conta relacionada a este usuário. Depois disso, é mostrado uma tela de menu, onde mostra os dados relacionados ao dinheiro do usuário, estes dados vão do saldo atual, ao valor de limite de crédito que ele possui. A medida que o usuário vai interagindo com o sistema, os valores de limite de crédito e emprestimo vão aumentando. Pois foi implementada uma lógica que faz isso de acordo com a quantidade de movimentações bancárias do usuário. Os valores de depósito são infinitos, já valores negativos não são permitidos em nenhuma das implementações. Enfim, basicamente é isso que este sistema faz.
+
+# Demais infos:
+
+### Fique a vontade para sugerir implementações, ou algum erro que você acha que deve ser resolvido.
+
+## Minhas redes:
+[![Instagram](https://img.shields.io/badge/-Instagram-000?style=for-the-badge&logo=instagram&logoColor=FFF&color:FFF)](https://www.instagram.com/luisfl04_/)
+
 
