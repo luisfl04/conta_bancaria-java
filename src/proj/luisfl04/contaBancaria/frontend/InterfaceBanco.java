@@ -143,29 +143,32 @@ public class InterfaceBanco {
                     catch(Exception e){
                         e.printStackTrace();
                     }
-                    // Printando mensagem e pedindo valor de depósito:
+                    
+                    // Printando mensagem, criando variável que armazena e passa o valor como parâmetro, e pedindo valor de depósito:
                     System.out.println("*Depósito*\n--------------------------------------------\nInsira o valor do depósito abaixo:"); 
-                    // Criando variável que irá armazenar o valor do déposito e passá-lo como parâmetro:
-                    
-                    
+                    double valor_de_deposito = scanf.nextDouble();
 
+                    // Fazendo tratamento de erro caso o usuário digite um valor negativo ou um valor nulo:
+                    while(valor_de_deposito <= 0){
+                        System.out.println("\nValores negativos ou nulos não são válido para depósito! Digite um valor válido abaixo:");
+                        valor_de_deposito = scanf.nextDouble();
+                    }
 
+                    // Chamando o método para adicionar o valor ao saldo:
+                    ContaBancaria.depositar_valor(valor_de_deposito);
 
+                    // Printando mensagem temporária de validação de depósito:
+                    System.out.println("\nDepósito de R$" + valor_de_deposito + " feito com suscesso!\n...");
 
-
-
-
-
-
-
-
-
-                    
-
-
+                    try{
+                        Thread.sleep(2000);
+                    }
+                    catch(Exception exception){
+                        exception.getMessage();
+                    }
 
                     break;
-            
+                
                 default:
                     break;
             }
