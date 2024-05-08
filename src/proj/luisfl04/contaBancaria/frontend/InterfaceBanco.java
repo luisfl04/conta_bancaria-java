@@ -3,6 +3,8 @@ package proj.luisfl04.contaBancaria.frontend;
 import proj.luisfl04.contaBancaria.backend.ContaBancaria;
 import java.util.Scanner;
 import java.util.Locale;
+import java.lang.Thread;
+
 
 
 public class InterfaceBanco {
@@ -14,11 +16,11 @@ public class InterfaceBanco {
 
         // Pedindo as informações gerais do cliente:
         // Pedindo nome:
-        System.out.println("Ola cliente, insira primeiramente, o seu primeiro nome abaixo:");
+        System.out.println("Ola cliente, insira primeiramente, o seu primeiro nome abaixo(Somente o primeiro nome):");
         ContaBancaria.nome_cliente = scanf.next();
 
         // Pedindo numero de conta:
-        System.out.println("\nAgora, crie um número para sua conta(ele precisa ter 4 digitos):");
+        System.out.println("\nAgora, crie um número para sua conta(ele precisa ter 4 digitos)\n*Somente números*\nDigite abaixo:");
         ContaBancaria.numero_da_conta = scanf.nextInt();
         
         // Fazendo tratamento de erro caso o usuário digite um valor maior do que 4 digitos:
@@ -39,7 +41,7 @@ public class InterfaceBanco {
         }
 
         // pedindo a agencia da conta:
-        System.out.println("\nCrie agora uma agencia para você(Com 3 digitos):");
+        System.out.println("\nCrie agora uma agencia para você(Com 3 digitos)\n*Somente números*\nDigite abaixo:");
         ContaBancaria.agencia_da_conta = scanf.nextInt();
 
         // fazendo tratamento de erro em relação a quantidade de caracteres:
@@ -59,7 +61,7 @@ public class InterfaceBanco {
         }
 
         // Pedindo o digito verificador da agencia da conta:
-        System.out.println("\nCerto, para completar, insira o dígito verificador da sua agência abaixo(de 0 á 9):");
+        System.out.println("\nCerto, para completar, insira o dígito verificador da sua agência abaixo(de 0 á 9)\n*Somente numeros*\nDigite abaixo:");
         ContaBancaria.digito_verificador_da_agencia = scanf.nextByte();
 
         // Verificando se o número digitado é maior que 10 ou menor que 0, para tratar erro:
@@ -81,6 +83,16 @@ public class InterfaceBanco {
 
         // Criação de menu interativo. Que sempre irá mostrar as informações e as opções de métodos que o usuário pode escolher:
 
+        // Implementando mensagem de boas vindas. Que irá ser mostrada por um tempo determinada, antes que o console seja limpo.
+        System.out.println("Olá " + ContaBancaria.nome_cliente + ", seja bem vindo!\n...");
+        // Tentativa de parar a execulção por 2 segundos:
+        try{
+            Thread.sleep(2000);
+        }
+        catch(InterruptedException exception){
+            exception.getMessage();
+        }
+
         // Criando variável que irá determinar o fluxo do programa:
         int escolha_do_usuario = 100; // Inicializei com este valor para que o programa entre o loop 'while'.
 
@@ -95,8 +107,10 @@ public class InterfaceBanco {
                 e.printStackTrace();
             }
 
-            System.out.println("Insira uma escolha abaixo:");
-            escolha_do_usuario = scanf.nextInt();
+            // Implementando impressão das informações do usuário junto com suas informações bancárias:
+            System.out.println("Nome -> " + ContaBancaria.nome_cliente + "");
+
+
 
 
             
