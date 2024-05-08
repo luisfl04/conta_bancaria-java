@@ -39,7 +39,7 @@ public class InterfaceBanco {
 
         // Pedindo as informações gerais do cliente:
         // Pedindo nome:
-        System.out.println("Ola cliente, insira primeiramente, o seu primeiro nome abaixo(Somente o primeiro nome):");
+        System.out.println("\nOla cliente, insira primeiramente, o seu primeiro nome abaixo(Somente o primeiro nome):");
         ContaBancaria.nome_cliente = scanf.next();
 
         // Pedindo numero de conta:
