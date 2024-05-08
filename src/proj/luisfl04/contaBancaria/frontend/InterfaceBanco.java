@@ -108,10 +108,13 @@ public class InterfaceBanco {
             }
 
             // Implementando impressão das informações do usuário junto com suas informações bancárias:
-            System.out.println("Nome -> " + ContaBancaria.nome_cliente + "");
+            System.out.println("--------------------------------------------\nNome -> " + ContaBancaria.nome_cliente + "\nNúmero da conta -> " + ContaBancaria.numero_da_conta + "\nAgência -> " + numero_da_agencia_com_digito);
+            // Infos relacionadas ao saldo do usuário:
+            System.out.println("\n--------------------------------------------\nSaldo disponível -> R$" + ContaBancaria.saldo_atual + "\nLimite de empréstimo -> R$" + ContaBancaria.valor_de_emprestimo_disponivel + "\nLimite de crédito -> R$" + ContaBancaria.valor_de_crédito_disponivel);
+            // Infos relacionadas a valores de faturas de crédito e de empréstimo:
+            System.out.println("\n--------------------------------------------\nFatura de crédito atual -> R$" + ContaBancaria.valor_atual_da_fatura + "\nValores de empréstimos a pagar -> R$" + ContaBancaria.valor_de_emprestimo_para_ser_pago);
 
-
-
+            
 
             
 
