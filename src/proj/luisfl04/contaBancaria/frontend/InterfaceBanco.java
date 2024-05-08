@@ -10,6 +10,17 @@ import java.lang.Thread;
 
 public class InterfaceBanco {
     
+    // Método que limpa o console do terminal:
+    public static void limpar_terminal(){
+        // Implementação que tenta limpar o contéudo do terminal, sempre que o loop está execultando:
+        try{
+            new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+
     public static void main(String[] args) {
 
         // fazendo instanciação da classe 'Scanner', para pegar os dados do usuário:
@@ -100,13 +111,8 @@ public class InterfaceBanco {
         // Criando loop de execução:
         while(escolha_do_usuario != 0){
 
-            // Implementação que tenta limpar o contéudo do terminal, sempre que o loop está execultando:
-            try{
-                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-            }
-            catch(Exception e){
-                e.printStackTrace();
-            }
+            // Limpando terminal:
+            limpar_terminal();
 
             // Implementando impressão das informações do usuário junto com suas informações bancárias:
             System.out.println("--------------------------------------------\nNome -> " + ContaBancaria.nome_cliente + "\nNúmero da conta -> " + ContaBancaria.numero_da_conta + "\nAgência -> " + numero_da_agencia_com_digito);
@@ -142,13 +148,9 @@ public class InterfaceBanco {
 
                 // Função de depósito:
                 case 1:
-                    // Implementação de 'limpeza':
-                    try{
-                        new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-                    }
-                    catch(Exception e){
-                        e.printStackTrace();
-                    }
+
+                    // Limpando terminal:
+                    limpar_terminal();
                     
                     // Printando mensagem, criando variável que armazena e passa o valor como parâmetro, e pedindo valor de depósito:
                     System.out.println("*Depósito*\n--------------------------------------------\nInsira o valor do depósito abaixo:"); 
@@ -180,12 +182,7 @@ public class InterfaceBanco {
                 case 2:
                        
                     // Implementação de 'limpeza':
-                    try{
-                        new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-                    }
-                    catch(Exception e){
-                        e.printStackTrace();
-                    }
+                    limpar_terminal();
 
                     // Pendindo valor do saque ao usuário:                    
                     System.out.println("*Saque*\n--------------------------------------------\nInsira o valor de saque escolhido abaixo:"); 
@@ -222,15 +219,9 @@ public class InterfaceBanco {
                 // Função de tranferencia PIX:
                 case 3:
 
-                    // Implementação de 'limpeza':
-                    try{
-                        new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-                    }
-                    catch(Exception e){
-                        e.printStackTrace();
-                    }
+                    // Implementação de limpeza:
+                    limpar_terminal();;
 
-                    
 
 
                     
