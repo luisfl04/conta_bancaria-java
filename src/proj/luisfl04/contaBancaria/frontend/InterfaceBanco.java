@@ -2,7 +2,6 @@ package proj.luisfl04.contaBancaria.frontend;
 // Importações nescessárias:
 import proj.luisfl04.contaBancaria.backend.ContaBancaria;
 import java.util.Scanner;
-import java.util.concurrent.ExecutionException;
 import java.util.Locale;
 import java.lang.Thread;
 
@@ -344,7 +343,7 @@ public class InterfaceBanco {
 
                     break;
                 
-                // 
+                // Realiza o pagamento integral do valor da conta de empréstimos feitos.
                 case 7:
                     
                     // Chamando o método e passando o valor atual da conta por parâmetro:
@@ -359,33 +358,9 @@ public class InterfaceBanco {
                     break;
             }
 
-
-
-
-
-            
-
-
         }
 
-
-
-
-
-
-        
-
-    
-
-
-
-
-        
-
-
-
+        scanf.close();
     }
-
-
 
 }
