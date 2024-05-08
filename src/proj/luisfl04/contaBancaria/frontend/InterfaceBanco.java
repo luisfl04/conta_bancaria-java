@@ -277,7 +277,8 @@ public class InterfaceBanco {
                     pausar_dois_segundos();
 
                     break;
-
+                
+                // Incorporar um valor escolhido dentro limite de empréstimo no saldo da conta:
                 case 4:
 
                     // Limpando o terminal:
@@ -304,6 +305,7 @@ public class InterfaceBanco {
 
                     break;
 
+                // Adiciona um valor escolhido que está dentro do limite de crédito disponível no saldo da conta:
                 case 5:
 
                     // Limpando terminal:
@@ -329,8 +331,18 @@ public class InterfaceBanco {
                     pausar_dois_segundos();
                     
                     break;
-
                 
+                // Faz o 'pagamento' do valor integral da fatura:
+                // Nesta implementação, so irá ser preciso fazer a chamada do método, pois o própio método faz as verificações.
+                case 6:
+                    
+                    // Chamando método:
+                    ContaBancaria.pagar_fatura(ContaBancaria.valor_atual_da_fatura);
+
+                    //Pausando em dois segundos:
+                    pausar_dois_segundos(); 
+
+                    break;
 
 
                 default:

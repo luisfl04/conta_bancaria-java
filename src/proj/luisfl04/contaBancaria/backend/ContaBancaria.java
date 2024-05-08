@@ -99,13 +99,20 @@ public class ContaBancaria {
     // Método para pagar fatura de crédito:
     // Neste caso, o usuário so irá poder pagar a fatura integral:
     public static double pagar_fatura(double valor_da_fatura_inserido){
-        // Verificando se o valor é igual:
-        if(valor_da_fatura_inserido == valor_atual_da_fatura){
-            valor_atual_da_fatura = 0;
+        // Verificando se o usuário tem saldo disponível para fazer o pagamento:
+        if(valor_da_fatura_inserido > saldo_atual){
+            System.out.println("\nVocê não tem saldo suficiente para fazer o pagamento!");
         }
         else{
-            // Se não for o valor integral, é exibida mensagem de erro.
-            System.out.println("\nSó é possível pagar o valor integralmente. Insira o valor -> " + valor_atual_da_fatura + "R$, para que o pagamento seja realizado com suscesso.");
+            // Se tem saldo, o valor é descontado do saldo e a fatura é zerada.
+            saldo_atual = saldo_atual - valor_da_fatura_inserido;
+            valor_atual_da_fatura = 0;
+
+            // Ao ser paga, o valor do limite é incorporado novamente:
+            valor_de_credito_disponivel = valor_de_credito_disponivel + valor_da_fatura_inserido;
+            
+            // Printando mensagem de suscesso:
+            System.out.println("\nFatura paga com suscesso!");
         }
     
         return valor_atual_da_fatura;
