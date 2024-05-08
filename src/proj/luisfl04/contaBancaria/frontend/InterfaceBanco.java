@@ -215,18 +215,44 @@ public class InterfaceBanco {
                     break;
 
                 // Função de tranferencia PIX:
+                // Na implementação desta função, é pedido o nome de quem a tranferência será feita, e o seu cpf como 'chave' pix(somente cpf´s serão válidos):
                 case 3:
 
                     // Implementação de limpeza:
-                    limpar_terminal();;
+                    limpar_terminal();
+                    
+                    // Pedindo nome e cpf do remetente:
+                    System.out.println("\n*Tranferência PIX*\n--------------------------------------------\nPrimeiramente, digite o nome da pessoa a quem você quer destinar o PIX\nDigite abaixo:");
+                    String nome_detinatario = scanf.next();
+                    
+                    // Pedindo cpf:
+                    System.out.println("\nAgora, insira o cpf de " + nome_detinatario + ".\nSomente cpf é aceito, ou seja, somente um valor com 10 dígitos é aceito.\nDigite abaixo:");
+                    long cpf_do_destinatario = scanf.nextLong();
+
+                    // Tranformando o valor em uma string para verificar a quantidade de caracteres do cpf:
+                    String string_cpf_do_destinatario = Long.toString(cpf_do_destinatario);
+                    int quantidade_de_caracteres_do_cpf = string_cpf_do_destinatario.length();
+
+                    // fazendo verificação do tamanho de caracteres do cpf escolhido:
+                    while(quantidade_de_caracteres_do_cpf != 10){
+                        
+                        System.out.println("\nVocê digitou um valor inválido de cpf! Informe um valor válido.\nDigite novamente abaixo:");
+                        long cpf_do_destinatario_no_wilhe = scanf.nextLong();
+
+                        // É nescessário obter o tamanho do cpf inserido novamente:
+                        String string_cpf_do_destinatario_no_while = Long.toString(cpf_do_destinatario_no_wilhe);
+                        int quantidade_de_caracteres_do_cpf_no_while = string_cpf_do_destinatario_no_while.length();
+                        quantidade_de_caracteres_do_cpf = quantidade_de_caracteres_do_cpf_no_while;
+                    }
+
                     
                     
 
+                
 
                     
+
                     break;
-
-                    
 
 
                 default:
