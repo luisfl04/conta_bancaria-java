@@ -130,12 +130,12 @@ public class InterfaceBanco {
             System.out.println("\n--------------------------------------------\nFatura de crédito atual -> R$" + ContaBancaria.valor_atual_da_fatura + "\nValores de empréstimos a pagar -> R$" + ContaBancaria.valor_de_emprestimo_para_ser_pago);
             
             // Imprimindo escolhas que o usuário pode escolher e pedindo que ele entre com uma escolha:
-            System.out.println("\n--------------------------------------------\nEscolha entre umas das opções abaixo(1 á 7):\n(1) - Fazer deposito\n(2) - Realizar saque\n(3) - Tranferenia PIX\n(4) - Pedir empréstimo ao banco\n(5) - Usar crédito disponível\n(6) Pagar fatura de crédito\n(7) - Pagar valor de empréstimo feito\n(0) - Para fechar o sistema");
+            System.out.println("\n--------------------------------------------\nEscolha entre umas das opções abaixo(1 á 7):\n(1) - Fazer deposito\n(2) - Realizar saque\n(3) - Tranferenia PIX\n(4) - Pedir empréstimo ao banco\n(5) - Usar crédito disponível\n(6) - Pagar fatura de crédito\n(7) - Pagar valor de empréstimo feito\n(0) - Para fechar o sistema");
 
             // Local onde usuário entra com uma escolha:
            
             // Pedindo escolha
-            System.out.println("\nDigite a opção escolhida.*Somente números*\nDigite abaixo:");
+            System.out.println("\nDigite a opção escolhida.\n*Somente números*\nDigite abaixo:");
             escolha_do_usuario = scanf.nextInt();
 
             // Fanzendo tratamento de erro caso o usuário digite um valor inválido:
@@ -188,18 +188,18 @@ public class InterfaceBanco {
                     limpar_terminal();
 
                     // Pendindo valor do saque ao usuário:                    
-                    System.out.println("*Saque*\n--------------------------------------------\nInsira o valor de saque escolhido abaixo:"); 
+                    System.out.println("\n*Saque*\n--------------------------------------------\nSeu saldo -> R$" + ContaBancaria.saldo_atual + "\n* Digite '0' para encerrar transação *\nInsira o valor de saque escolhido abaixo:"); 
                     double valor_do_saque = scanf.nextDouble();
                     
                     // Primeiramente, verificando se o usuário digitou um valor negativo ou nulo:
-                    while(valor_do_saque <= 0){
-                        System.out.println("\nValores negativos ou nulos não são válido para saque! Digite um valor válido abaixo:");
+                    while(valor_do_saque < 0){
+                        System.out.println("\nSeu saldo -> R$" + ContaBancaria.saldo_atual +"\nValores negativos não são válidos para saque! Digite um valor válido abaixo:");
                         valor_do_saque = scanf.nextDouble();
                     }
 
                     // Fazendo verificação de caso o usuário desejar um valor maior do que o que ele tem na conta:
-                    while(valor_do_saque > ContaBancaria.saldo_atual){
-                        System.out.println("\nVoce esta tentando sacar um valor maior do que o disponível na sua conta! Digite um valor de saque válido abaixo:");
+                    while(valor_do_saque > ContaBancaria.saldo_atual || valor_do_saque < 0){
+                        System.out.println("\nSeu saldo -> R$" + ContaBancaria.saldo_atual + "\n* Digite '0' para encerrar a transação *\nVoce esta tentando sacar um valor maior do que o disponível na sua conta, ou está tentando sacar um valor negativo.\nDigite um valor de saque válido abaixo:");
                         valor_do_saque = scanf.nextDouble();
                     }
 
@@ -222,7 +222,7 @@ public class InterfaceBanco {
                     limpar_terminal();
                     
                     // Pedindo nome e cpf do remetente:
-                    System.out.println("\n*Tranferência PIX*\n--------------------------------------------\nPrimeiramente, digite o nome da pessoa a quem você quer destinar o PIX\nDigite abaixo:");
+                    System.out.println("\n*Tranferência PIX*\n--------------------------------------------\nPrimeiramente, digite o nome da pessoa a quem você quer destinar o PIX(somente o primeiro nome)\nDigite abaixo:");
                     String nome_detinatario = scanf.next();
                     
                     // Pedindo cpf:
@@ -243,17 +243,33 @@ public class InterfaceBanco {
                         String string_cpf_do_destinatario_no_while = Long.toString(cpf_do_destinatario_no_wilhe);
                         int quantidade_de_caracteres_do_cpf_no_while = string_cpf_do_destinatario_no_while.length();
                         quantidade_de_caracteres_do_cpf = quantidade_de_caracteres_do_cpf_no_while;
+                        cpf_do_destinatario = cpf_do_destinatario_no_wilhe;
                     }
 
+                    // Pedindo o valor da tranferência para o usuário:
                     
-                    
+                    // Limpando a tela,passando as infos do destinatário da tranferência, e pedindo o valor da transferência:
+                    limpar_terminal();
 
-                
-
+                    System.out.println("Destinatário -> " + nome_detinatario + "\nChave -> " + cpf_do_destinatario + "\nInforme o valor da transferência abaixo:");
+                    double valor_da_transferencia = scanf.nextDouble();
                     
+                    // Fazendo tratamento de erro caso o usuário digite um valor negativo:
+                    while(valor_da_transferencia < 0){
+                        System.out.println("\nVocê tentou transferir um valor negativo! Insira um valor válido abaixo:");
+                        valor_da_transferencia = scanf.nextDouble();
+                    }
+
+                    // Se os dados estão certos, a transferência é validada:
+                    ContaBancaria.fazer_transferencia(valor_da_transferencia);
+
+                    // Imprimindo mensagem de validação:
+                    System.out.println("\nTranferência PIX de R$" + valor_da_transferencia + " para " + nome_detinatario + " validada!\n...");
+
+                    // Pausando execulção em dois segundos:
+                    pausar_dois_segundos();
 
                     break;
-
 
                 default:
                     break;
