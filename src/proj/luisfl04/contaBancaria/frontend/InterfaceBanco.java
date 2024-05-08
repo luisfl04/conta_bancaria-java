@@ -215,14 +215,14 @@ public class InterfaceBanco {
                     break;
 
                 // Função de tranferencia PIX:
-                // Na implementação desta função, é pedido o nome de quem a tranferência será feita, e o seu cpf como 'chave' pix(somente cpf´s serão válidos):
+                // Na implementação desta função, é pedido o nome para quem a tranferência será feita, e o seu cpf como 'chave' pix(somente cpf´s serão válidos):
                 case 3:
 
                     // Implementação de limpeza:
                     limpar_terminal();
                     
                     // Pedindo nome e cpf do remetente:
-                    System.out.println("\n*Tranferência PIX*\n--------------------------------------------\nPrimeiramente, digite o nome da pessoa a quem você quer destinar o PIX(somente o primeiro nome)\nDigite abaixo:");
+                    System.out.println("\n*Tranferência PIX*\n--------------------------------------------\nSeu saldo -> R$" + ContaBancaria.saldo_atual +"\nPrimeiramente, digite o nome da pessoa a quem você quer destinar o PIX(somente o primeiro nome)\nDigite abaixo:");
                     String nome_detinatario = scanf.next();
                     
                     // Pedindo cpf:
@@ -251,12 +251,12 @@ public class InterfaceBanco {
                     // Limpando a tela,passando as infos do destinatário da tranferência, e pedindo o valor da transferência:
                     limpar_terminal();
 
-                    System.out.println("Destinatário -> " + nome_detinatario + "\nChave -> " + cpf_do_destinatario + "\nInforme o valor da transferência abaixo:");
+                    System.out.println("\nSeu saldo -> R$" + ContaBancaria.saldo_atual + "\n--------------------------------------------\n* Caso deseje, insira '0' para encerrar a transação *\nDestinatário -> " + nome_detinatario + "\nChave cpf -> " + cpf_do_destinatario + "\nInforme o valor da transferência abaixo:");
                     double valor_da_transferencia = scanf.nextDouble();
                     
                     // Fazendo tratamento de erro caso o usuário digite um valor negativo:
-                    while(valor_da_transferencia < 0){
-                        System.out.println("\nVocê tentou transferir um valor negativo! Insira um valor válido abaixo:");
+                    while(valor_da_transferencia < 0 || valor_da_transferencia > ContaBancaria.saldo_atual){
+                        System.out.println("\nSeu saldo -> R$" + ContaBancaria.saldo_atual + "\n--------------------------------------------\n* Caso deseje, insira '0' para encerrar a transação *\nO valor inserido é invalido! Insira um valor válido abaixo:");
                         valor_da_transferencia = scanf.nextDouble();
                     }
 
@@ -270,6 +270,30 @@ public class InterfaceBanco {
                     pausar_dois_segundos();
 
                     break;
+
+                case 4:
+
+                    // Limpando o terminal:
+                    limpar_terminal();
+
+                    // printando o limite disponível e pedindo o valor do empréstimo:
+                    System.out.println("\nDigite '0' para encerrar esta transação\n\n* Empréstimo *\n--------------------------------------------\nSeu limite de crédito disponível -> R$" + ContaBancaria.valor_de_emprestimo_disponivel + "\nInsira o valor de empréstimo escolhido abaixo(Este valor será incorporado a sua conta):");
+                    double valor_de_emprestimo = scanf.nextDouble();
+
+                    // Verificando o valor de empréstimo inserido pelo usuário:
+                    while(valor_de_emprestimo < 0 || valor_de_emprestimo > ContaBancaria.valor_de_emprestimo_disponivel){
+                        System.out.println("\nDigite '0' para encerrar esta transação\n\nSeu valor de empréstimo disponível -> R$" +ContaBancaria.valor_de_emprestimo_disponivel + "\n--------------------------------------------\nO valor que você inseriu é inválido!\nDigite um valor válido abaixo:");
+                        valor_de_emprestimo = scanf.nextDouble();    
+                    }
+
+                    // Se o valor é valido, é feita a operação:
+                    ContaBancaria.fazer_emprestimo(valor_de_emprestimo);
+
+
+
+                    break;
+
+
 
                 default:
                     break;

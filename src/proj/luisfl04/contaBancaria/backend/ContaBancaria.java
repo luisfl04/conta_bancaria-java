@@ -67,22 +67,16 @@ public class ContaBancaria {
 
     // Método para realizar empréstimo com base no valor de empréstimo disponível:
     public static double fazer_emprestimo(double valor_de_emprestimo){
-        // Verificando o valor de empréstimo dispnível pelo usuário:
-        if(valor_de_emprestimo <= valor_de_emprestimo_disponivel){
-            // Atribuindo o valor a saldo:
-            saldo_atual = saldo_atual + valor_de_emprestimo;
+                
+        // Atribuindo o valor a saldo:
+        saldo_atual = saldo_atual + valor_de_emprestimo;
 
-            // Diminuindo valor disponível para empréstimo:
-            valor_de_emprestimo_disponivel = valor_de_emprestimo_disponivel - valor_de_emprestimo;
+        // Diminuindo valor disponível para empréstimo:
+        valor_de_emprestimo_disponivel = valor_de_emprestimo_disponivel - valor_de_emprestimo;
 
-            // Adicionando o valor escolhido ao valor que precisa ser pago, ou seja, a 'fatura' de empréstimo.:
-            valor_de_emprestimo_para_ser_pago = valor_de_emprestimo_para_ser_pago + valor_de_emprestimo;
-        }
-        else{
-            //Se não tem limite suficiente retorno mensagem de erro.
-            System.out.println("\nO valor de empréstimo inserido está disponível neste momento."); 
-        }
-        // Retornando saldo atual:
+        // Adicionando o valor escolhido ao valor que precisa ser pago, ou seja, a 'fatura' de empréstimo.:
+        valor_de_emprestimo_para_ser_pago = valor_de_emprestimo_para_ser_pago + valor_de_emprestimo;
+
         return saldo_atual;
     }
 
