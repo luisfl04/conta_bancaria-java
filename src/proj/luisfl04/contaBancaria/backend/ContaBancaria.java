@@ -75,7 +75,7 @@ public class ContaBancaria {
             // Diminuindo valor disponível para empréstimo:
             valor_de_emprestimo_disponivel = valor_de_emprestimo_disponivel - valor_de_emprestimo;
 
-            // Adicionando o valor escolhido ao valor que precisa ser pago, ou seja, a 'fatura' de empréstimo:
+            // Adicionando o valor escolhido ao valor que precisa ser pago, ou seja, a 'fatura' de empréstimo.:
             valor_de_emprestimo_para_ser_pago = valor_de_emprestimo_para_ser_pago + valor_de_emprestimo;
         }
         else{
