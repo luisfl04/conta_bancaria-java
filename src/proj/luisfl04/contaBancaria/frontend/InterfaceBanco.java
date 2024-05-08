@@ -304,7 +304,18 @@ public class InterfaceBanco {
 
                     break;
 
-                
+                case 5:
+
+                    // Limpando terminal:
+                    limpar_terminal();
+
+                    
+
+
+                    
+                    break;
+
+
 
                 default:
                     break;

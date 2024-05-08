@@ -82,20 +82,15 @@ public class ContaBancaria {
 
     // Método de uso de crédito disponivel:
     public static double usar_credito(double valor_de_uso_do_credito){
-        // Verificando se tem crédito disponível:
-        if(valor_de_uso_do_credito <= valor_de_crédito_disponivel){
-            valor_de_crédito_disponivel = valor_de_crédito_disponivel - valor_de_uso_do_credito; 
+                  
+        // Decrementando o valor de crédito disponível;
+        valor_de_crédito_disponivel = valor_de_crédito_disponivel - valor_de_uso_do_credito; 
             
-            // Adicionando valor na fatura:
-            valor_atual_da_fatura = valor_atual_da_fatura + valor_de_uso_do_credito;
+        // Adicionando valor na fatura:
+        valor_atual_da_fatura = valor_atual_da_fatura + valor_de_uso_do_credito;
 
-            // Atribuindo valor inserido na conta:
-            saldo_atual = saldo_atual + valor_de_uso_do_credito;
-        }
-        else{
-            // Se não tem crédito, mensagem de erro exibida:
-            System.out.println("\nO valor escolhido para crédito não esta disponível neste momento!");
-        }
+        // Atribuindo valor inserido na conta:
+        saldo_atual = saldo_atual + valor_de_uso_do_credito;
 
         // Retornando o saldo atual:
         return saldo_atual;
