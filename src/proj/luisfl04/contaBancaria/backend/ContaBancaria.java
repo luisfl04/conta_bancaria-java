@@ -120,18 +120,28 @@ public class ContaBancaria {
 
     // Método que realiza o 'pagamento' integral do valor de empréstimo que o usuário precisa pagar:
     public static double pagar_emprestimo(double valor_de_emprestimo_inserido){
-        // Só irá ser aceito o valor integral do empréstimo(s) feito(s):
-        if(valor_de_emprestimo_inserido == valor_de_emprestimo_para_ser_pago){
-            valor_de_emprestimo_para_ser_pago = 0;
+        
+        // Verificando se o valor do empréstimo é maior que o saldo:
+        if(valor_de_emprestimo_inserido > saldo_atual){
+            // printando mensagem:
+            System.out.println("\nO seu saldo não é suficiente para realizar o pagamento integral do empréstimo!");
         }
         else{
-            // Exibindo mensagem de erro para usuário:
-            System.out.println("\nSó é possivel pagar o valor integral! O valor de pagamento precisa ser -> R$" + valor_de_emprestimo_para_ser_pago + ", para que o pagamento seja aceito.");
+            
+            // Printando mensagem de suscesso:
+            System.out.println("\nO pagamento integral da conta de emprestimo foi feito com suscesso!");
+
+            // decrementando o saldo atual:
+            saldo_atual = saldo_atual - valor_de_emprestimo_inserido;
+
+            // zerando a conta de empréstimo:
+            valor_de_emprestimo_para_ser_pago = 0;
+
+            // Reincorporando o valor da conta ao limite de empréstimo:
+            valor_de_emprestimo_disponivel = valor_de_emprestimo_disponivel + valor_de_emprestimo_inserido;
         }
 
         return valor_de_emprestimo_para_ser_pago;
     }
-
-
 
 }

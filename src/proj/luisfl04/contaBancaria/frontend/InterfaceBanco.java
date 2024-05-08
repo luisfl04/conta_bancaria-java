@@ -258,12 +258,12 @@ public class InterfaceBanco {
                     // Limpando a tela, passando as infos do destinatário da tranferência, e pedindo o valor da transferência:
                     limpar_terminal();
 
-                    System.out.println("\nSeu saldo -> R$" + saldo_atual + "\n--------------------------------------------\n* Caso deseje, insira '0' para encerrar a transação *\nDestinatário -> " + nome_detinatario + "\nChave cpf -> " + cpf_do_destinatario + "\nInforme o valor da transferência abaixo:");
+                    System.out.println("\nSeu saldo -> R$" + saldo_atual + "\n--------------------------------------------\n* Caso deseje, insira '0' para encerrar a transação *\n\nDestinatário -> " + nome_detinatario + "\nChave cpf -> " + cpf_do_destinatario + "\nInforme o valor da transferência abaixo:");
                     double valor_da_transferencia = scanf.nextDouble();
                     
-                    // Fazendo tratamento de erro caso o usuário digite um valor negativo:
+                    // Fazendo tratamento de erro caso o usuário digite um valor negativo, ou um valor maior que o saldo:
                     while(valor_da_transferencia < 0 || valor_da_transferencia > ContaBancaria.saldo_atual){
-                        System.out.println("\nSeu saldo -> R$" + saldo_atual + "\n--------------------------------------------\n* Caso deseje, insira '0' para encerrar a transação *\nO valor inserido é invalido! Insira um valor válido abaixo:");
+                        System.out.println("\nSeu saldo -> R$" + saldo_atual + "\n--------------------------------------------\n* Caso deseje, insira '0' para encerrar a transação *\n\nO valor inserido é invalido! Insira um valor válido abaixo:");
                         valor_da_transferencia = scanf.nextDouble();
                     }
 
@@ -343,7 +343,17 @@ public class InterfaceBanco {
                     pausar_dois_segundos(); 
 
                     break;
+                
+                // 
+                case 7:
+                    
+                    // Chamando o método e passando o valor atual da conta por parâmetro:
+                    ContaBancaria.pagar_emprestimo(ContaBancaria.valor_de_emprestimo_para_ser_pago);
 
+                    // Pausando a execulção em dois segundos:
+                    pausar_dois_segundos();
+
+                    break;
 
                 default:
                     break;
