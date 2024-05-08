@@ -2,6 +2,7 @@ package proj.luisfl04.contaBancaria.frontend;
 // Importações nescessárias:
 import proj.luisfl04.contaBancaria.backend.ContaBancaria;
 import java.util.Scanner;
+import java.util.concurrent.ExecutionException;
 import java.util.Locale;
 import java.lang.Thread;
 
@@ -115,16 +116,16 @@ public class InterfaceBanco {
             System.out.println("\n--------------------------------------------\nFatura de crédito atual -> R$" + ContaBancaria.valor_atual_da_fatura + "\nValores de empréstimos a pagar -> R$" + ContaBancaria.valor_de_emprestimo_para_ser_pago);
             
             // Imprimindo escolhas que o usuário pode escolher e pedindo que ele entre com uma escolha:
-            System.out.println("\n--------------------------------------------\nEscolha entre umas das opções abaixo(1 á 7):\n(1) - Fazer deposito\n(2) - Realizar saque\n(3) - Tranferenia PIX\n(4) - Pedir empréstimo ao banco\n(5) - Usar crédito disponível\n(6) Pagar fatura de crédito\n(7) - Pagar valor de empréstimo feito");
+            System.out.println("\n--------------------------------------------\nEscolha entre umas das opções abaixo(1 á 7):\n(1) - Fazer deposito\n(2) - Realizar saque\n(3) - Tranferenia PIX\n(4) - Pedir empréstimo ao banco\n(5) - Usar crédito disponível\n(6) Pagar fatura de crédito\n(7) - Pagar valor de empréstimo feito\n(0) - Para fechar o sistema");
 
-            // Local onde usuário entre com uma escolha:
+            // Local onde usuário entra com uma escolha:
            
             // Pedindo escolha
             System.out.println("\nDigite a opção escolhida.*Somente números*\nDigite abaixo:");
             escolha_do_usuario = scanf.nextInt();
 
             // Fanzendo tratamento de erro caso o usuário digite um valor inválido:
-            while(escolha_do_usuario < 1 || escolha_do_usuario > 7){
+            while(escolha_do_usuario < 0 || escolha_do_usuario > 7){
                 // Pendindo valor:
                 System.out.println("\nVocê digitou um valor inválido de escolha, digite novamente abaixo:");
                 escolha_do_usuario = scanf.nextInt();
@@ -133,7 +134,12 @@ public class InterfaceBanco {
             // Implementado uma estrutura 'switch' que chama as funções conforme o usuário escolhe:
             switch (escolha_do_usuario) {
                 // Em todos os casos terá uma implementação de limpar o console, para fins de deixar a interação mais limpa.
-        
+                
+                // Função que encerra o programa:
+                case 0:
+                    escolha_do_usuario = 0;
+                    break;
+
                 // Função de depósito:
                 case 1:
                     // Implementação de 'limpeza':
@@ -160,6 +166,7 @@ public class InterfaceBanco {
                     // Printando mensagem temporária de validação de depósito:
                     System.out.println("\nDepósito de R$" + valor_de_deposito + " feito com suscesso!\n...");
 
+                    // Implementação de 'time sleep' quando o programa volta para o menu inicial.
                     try{
                         Thread.sleep(2000);
                     }
@@ -169,6 +176,69 @@ public class InterfaceBanco {
 
                     break;
                 
+                //Função de saque:
+                case 2:
+                       
+                    // Implementação de 'limpeza':
+                    try{
+                        new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+                    }
+                    catch(Exception e){
+                        e.printStackTrace();
+                    }
+
+                    // Pendindo valor do saque ao usuário:                    
+                    System.out.println("*Saque*\n--------------------------------------------\nInsira o valor de saque escolhido abaixo:"); 
+                    double valor_do_saque = scanf.nextDouble();
+                    
+                    // Primeiramente, verificando se o usuário digitou um valor negativo ou nulo:
+                    while(valor_do_saque <= 0){
+                        System.out.println("\nValores negativos ou nulos não são válido para saque! Digite um valor válido abaixo:");
+                        valor_do_saque = scanf.nextDouble();
+                    }
+
+                    // Fazendo verificação de caso o usuário desejar um valor maior do que o que ele tem na conta:
+                    while(valor_do_saque > ContaBancaria.saldo_atual){
+                        System.out.println("\nVoce esta tentando sacar um valor maior do que o disponível na sua conta! Digite um valor de saque válido abaixo:");
+                        valor_do_saque = scanf.nextDouble();
+                    }
+
+                    // Se o valor for válido, o saque é feito:
+                    ContaBancaria.sacar_valor(valor_do_saque);
+
+                    // Printando mensagem validando o saque:
+                    System.out.println("\nSaque de R$" + valor_do_saque + " feito com suscesso!\n...");
+
+                    // Implementação de 'time sleep' quando o programa volta para o menu inicial:
+                    try{
+                        Thread.sleep(2000);
+                    }
+                    catch(Exception exception){
+                        exception.getMessage();
+                    }
+
+                    break;
+
+                // Função de tranferencia PIX:
+                case 3:
+
+                    // Implementação de 'limpeza':
+                    try{
+                        new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+                    }
+                    catch(Exception e){
+                        e.printStackTrace();
+                    }
+
+                    
+
+
+                    
+                    break;
+
+                    
+
+
                 default:
                     break;
             }
@@ -199,6 +269,7 @@ public class InterfaceBanco {
 
 
     }
+
 
 
 }
