@@ -113,8 +113,66 @@ public class InterfaceBanco {
             System.out.println("\n--------------------------------------------\nSaldo disponível -> R$" + ContaBancaria.saldo_atual + "\nLimite de empréstimo -> R$" + ContaBancaria.valor_de_emprestimo_disponivel + "\nLimite de crédito -> R$" + ContaBancaria.valor_de_crédito_disponivel);
             // Infos relacionadas a valores de faturas de crédito e de empréstimo:
             System.out.println("\n--------------------------------------------\nFatura de crédito atual -> R$" + ContaBancaria.valor_atual_da_fatura + "\nValores de empréstimos a pagar -> R$" + ContaBancaria.valor_de_emprestimo_para_ser_pago);
-
             
+            // Imprimindo escolhas que o usuário pode escolher e pedindo que ele entre com uma escolha:
+            System.out.println("\n--------------------------------------------\nEscolha entre umas das opções abaixo(1 á 7):\n(1) - Fazer deposito\n(2) - Realizar saque\n(3) - Tranferenia PIX\n(4) - Pedir empréstimo ao banco\n(5) - Usar crédito disponível\n(6) Pagar fatura de crédito\n(7) - Pagar valor de empréstimo feito");
+
+            // Local onde usuário entre com uma escolha:
+           
+            // Pedindo escolha
+            System.out.println("\nDigite a opção escolhida.*Somente números*\nDigite abaixo:");
+            escolha_do_usuario = scanf.nextInt();
+
+            // Fanzendo tratamento de erro caso o usuário digite um valor inválido:
+            while(escolha_do_usuario < 1 || escolha_do_usuario > 7){
+                // Pendindo valor:
+                System.out.println("\nVocê digitou um valor inválido de escolha, digite novamente abaixo:");
+                escolha_do_usuario = scanf.nextInt();
+            }
+
+            // Implementado uma estrutura 'switch' que chama as funções conforme o usuário escolhe:
+            switch (escolha_do_usuario) {
+                // Em todos os casos terá uma implementação de limpar o console, para fins de deixar a interação mais limpa.
+        
+                // Função de depósito:
+                case 1:
+                    // Implementação de 'limpeza':
+                    try{
+                        new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+                    }
+                    catch(Exception e){
+                        e.printStackTrace();
+                    }
+                    // Printando mensagem e pedindo valor de depósito:
+                    System.out.println("*Depósito*\n--------------------------------------------\nInsira o valor do depósito abaixo:"); 
+                    // Criando variável que irá armazenar o valor do déposito e passá-lo como parâmetro:
+                    
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+                    
+
+
+
+                    break;
+            
+                default:
+                    break;
+            }
+
+
+
+
 
             
 
