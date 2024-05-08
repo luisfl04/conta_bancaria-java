@@ -21,6 +21,18 @@ public class InterfaceBanco {
         }
     }
 
+    // Método que para a execulção do programa em dois segundos:
+    public static void pausar_dois_segundos(){
+        // Tentativa de parar a execulção por 2 segundos:
+        try{
+            Thread.sleep(2000);
+        }
+        catch(InterruptedException exception){
+            exception.getMessage();
+        }
+    }
+
+
     public static void main(String[] args) {
 
         // fazendo instanciação da classe 'Scanner', para pegar os dados do usuário:
@@ -97,14 +109,10 @@ public class InterfaceBanco {
 
         // Implementando mensagem de boas vindas. Que irá ser mostrada por um tempo determinada, antes que o console seja limpo.
         System.out.println("Olá " + ContaBancaria.nome_cliente + ", seja bem vindo!\n...");
-        // Tentativa de parar a execulção por 2 segundos:
-        try{
-            Thread.sleep(2000);
-        }
-        catch(InterruptedException exception){
-            exception.getMessage();
-        }
-
+        
+        // Pausando a execulção em dois segundos:
+        pausar_dois_segundos();
+        
         // Criando variável que irá determinar o fluxo do programa:
         int escolha_do_usuario = 100; // Inicializei com este valor para que o programa entre o loop 'while'.
 
@@ -168,13 +176,8 @@ public class InterfaceBanco {
                     // Printando mensagem temporária de validação de depósito:
                     System.out.println("\nDepósito de R$" + valor_de_deposito + " feito com suscesso!\n...");
 
-                    // Implementação de 'time sleep' quando o programa volta para o menu inicial.
-                    try{
-                        Thread.sleep(2000);
-                    }
-                    catch(Exception exception){
-                        exception.getMessage();
-                    }
+                    // Pausando execulção em dois segundos:
+                    pausar_dois_segundos();
 
                     break;
                 
@@ -206,13 +209,8 @@ public class InterfaceBanco {
                     // Printando mensagem validando o saque:
                     System.out.println("\nSaque de R$" + valor_do_saque + " feito com suscesso!\n...");
 
-                    // Implementação de 'time sleep' quando o programa volta para o menu inicial:
-                    try{
-                        Thread.sleep(2000);
-                    }
-                    catch(Exception exception){
-                        exception.getMessage();
-                    }
+                    // Pausando execulção em dois segundos:
+                    pausar_dois_segundos();
 
                     break;
 
@@ -221,7 +219,8 @@ public class InterfaceBanco {
 
                     // Implementação de limpeza:
                     limpar_terminal();;
-
+                    
+                    
 
 
                     
