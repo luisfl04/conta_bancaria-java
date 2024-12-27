@@ -18,7 +18,7 @@
 
 ## Descrição:
 
-### - O fluxo de funcionamento é bem simples, primeiramente é pedido algumas informações gerais para o usuário, como: nome, numero de conta e numero da agência. Essas informações são nescessárias para 'criar' a conta relacionada a este usuário. Depois disso, é mostrado uma tela de menu, onde mostra os dados relacionados ao dinheiro do usuário, estes dados vão do saldo atual, ao valor de limite de crédito que ele possui. A medida que o usuário vai interagindo com o sistema, os valores de limite de crédito e emprestimo vão aumentando. Pois foi implementada uma lógica que faz isso de acordo com a quantidade de movimentações bancárias do usuário. Os valores de depósito são infinitos, já valores negativos não são permitidos em nenhuma das implementações. Enfim, basicamente é isso que este sistema faz.
+### - O fluxo de funcionamento é bem simples, primeiramente é pedido algumas informações gerais para o usuário, como: nome, numero de conta e numero da agência. Essas informações são nescessárias para 'criar' a conta relacionada a este usuário. Depois disso, é mostrado uma tela de menu, onde mostra os dados relacionados ao dinheiro do usuário, estes dados vão do saldo atual ao valor de limite de crédito que ele possui. A medida que o usuário vai interagindo com o sistema, os valores de limite de crédito e emprestimo vão aumentando, pois foi implementada uma lógica que faz isso de acordo com a quantidade de movimentações bancárias do usuário. Os valores de depósito são infinitos, já valores negativos não são permitidos em nenhuma das ações bancárias. Enfim, basicamente é isso que este sistema faz!
 
 # Demais infos:
 
